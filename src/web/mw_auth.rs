@@ -71,9 +71,7 @@ impl<S: Send + Sync> FromRequestParts<S> for Ctx {
             .extensions
             .get::<Result<Ctx>>()
             .ok_or(Error::AuthFailCtxNotInRequestExt)?
-            .clone();
-
-        todo!()
+            .clone()
     }
 }
 

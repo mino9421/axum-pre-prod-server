@@ -2,10 +2,12 @@ use axum::{
     http::{response, StatusCode},
     response::{IntoResponse, Response},
 };
+use serde::Serialize;
 
 pub type Result<T> = core::result::Result<T, Error>;
 
-#[derive(Clone, Debug, strum_macros::AsRefStr)]
+#[derive(Clone, Debug, strum_macros::AsRefStr, Serialize)]
+#[serde(tag = "type", content = "data")]
 pub enum Error {
     LoginFail,
 
